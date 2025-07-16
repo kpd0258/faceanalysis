@@ -1,0 +1,11 @@
+# Core dependencies (최소 필수 패키지)
+fastapi==0.115.14
+uvicorn==0.32.1
+python-multipart==0.0.20
+
+# Database
+sqlalchemy==2.0.36
+python-dotenv==1.0.1
+
+# Configuration
+pyyaml==6.0.2 

@@ -1,0 +1,15 @@
+database:
+  url: sqlite:///./analysis.db    # 또는 postgres://user:pass@host/db
+upload:
+  dir: ./uploads
+model:
+  face_mesh: mediapipe            # or dlib
+  hyperparameters:
+    batch_size: 32
+    lr: 0.001
+dataset:
+  train_dir: ./data/train
+  val_dir:   ./data/val
+logging:
+  level: INFO
+  wandb: false

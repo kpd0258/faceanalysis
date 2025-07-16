@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>얼굴 분석 시스템</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans KR', Arial, sans-serif;
+      background: #f7f7f7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      width: 100%;
+      max-width: 400px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      padding: 32px 20px 24px 20px;
+      box-sizing: border-box;
+      margin: 16px;
+    }
+    h1 {
+      font-size: 1.5em;
+      margin-bottom: 24px;
+      text-align: center;
+      color: #222;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #444;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 18px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1em;
+      box-sizing: border-box;
+      background: #fafafa;
+    }
+    button {
+      width: 100%;
+      padding: 14px 0;
+      font-size: 1.1em;
+      background: #2d7cf7;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:active {
+      background: #1956b3;
+    }
+    @media (max-width: 480px) {
+      .container {
+        padding: 18px 6vw 16px 6vw;
+        margin: 0;
+        border-radius: 0;
+        min-height: 100vh;
+        box-shadow: none;
+      }
+      h1 {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form class="container" id="user-form">
+    <h1>얼굴 분석 시작하기</h1>
+    <label for="gender">성별</label>
+    <select id="gender" required>
+      <option value="">선택</option>
+      <option value="male">남성</option>
+      <option value="female">여성</option>
+      <option value="other">기타</option>
+    </select>
+    <label for="birth">생년월일</label>
+    <input type="date" id="birth" required max="2024-12-31">
+    <label for="country">국가</label>
+    <select id="country" required>
+      <option value="">선택</option>
+      <option value="KR">대한민국</option>
+      <option value="JP">일본</option>
+      <option value="CN">중국</option>
+      <option value="US">미국</option>
+      <option value="other">기타</option>
+    </select>
+    <button type="submit">카메라 촬영</button>
+  </form>
+  <script>
+    document.getElementById('user-form').onsubmit = function(e) {
+      e.preventDefault();
+      var gender = document.getElementById('gender').value;
+      var birth = document.getElementById('birth').value;
+      var country = document.getElementById('country').value;
+      if (!gender || !birth || !country) {
+        alert('모든 정보를 입력해 주세요.');
+        return;
+      }
+      var params = new URLSearchParams({ gender, birth, country });
+      window.location.href = '/camera?' + params.toString();
+    };
+  </script>
+</body>
+</html> 

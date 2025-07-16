@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "Smart Camera App",
+    "slug": "smart-camera-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "이 앱은 얼굴 인식과 밝기 감지를 통해 자동으로 사진을 촬영합니다.",
+        "NSPhotoLibraryUsageDescription": "촬영된 사진을 갤러리에 저장합니다."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.READ_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "이 앱이 카메라에 접근하여 얼굴 인식과 밝기 감지를 통해 자동으로 사진을 촬영할 수 있도록 허용합니다."
+        }
+      ]
+    ]
+  }
+} 
