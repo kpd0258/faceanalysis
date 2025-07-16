@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "expo": "^53.0.19",
+    "expo-cli": "^6.3.12",
     "express": "^4.18.2"
   }
 }
