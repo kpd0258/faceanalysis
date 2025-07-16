@@ -24,5 +24,8 @@
   "devDependencies": {
     "@types/react": "~19.0.10",
     "typescript": "~5.8.3"
+  },
+  "scripts": {
+    "build:web": "expo export:web"
   }
 }
